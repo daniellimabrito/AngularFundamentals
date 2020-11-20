@@ -1,0 +1,17 @@
+<p>
+  {{title}}
+</p>
+
+<ul *ngFor="let item of tasks; let i = index">
+  <li [ngClass]="status?'remove-item': ''" >
+    <a>{{item}}</a>
+   <span>
+     <button type="button" (click)="onClickDelete(i,item)">-</button>
+   </span> 
+   <span>
+    <button type="button" (click)="onClickDelete(i,item);onClickAdd(item);">+</button>
+  </span> 
+  </li>
+</ul>
+
+

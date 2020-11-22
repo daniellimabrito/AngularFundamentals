@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { BacklogService } from './backlog.service';
 import { TasksService } from '../tasks.service';
+import { DevelopmentService } from '../development-tasks/development.service';
+
+
 import { LogService } from 'src/app/shared/log.service';
 
 @Component({
   selector: 'app-backlog-tasks',
   templateUrl: './backlog-tasks.component.html',
   styleUrls: ['./backlog-tasks.component.css'],
-  providers: [TasksService]
+  providers: [BacklogService, TasksService, DevelopmentService]
 
 })
 export class BacklogTasksComponent implements OnInit {
@@ -16,7 +20,7 @@ export class BacklogTasksComponent implements OnInit {
   tasks: string[] = [];
   task: string;
   status: boolean = false;
-  constructor(private taskService: TasksService, private logService: LogService) { }
+  constructor(private backlogService: BacklogService, private taskService: TasksService, private logService: LogService) { }
 
   ngOnInit() {
     this.getTasks();
@@ -25,10 +29,17 @@ export class BacklogTasksComponent implements OnInit {
       taskCreated => this.tasks.push(taskCreated)
     );
 
-    TasksService.moveTaskToDev.subscribe(
+    BacklogService.moveTask.subscribe(
       taskCreated => this.tasks.push(taskCreated)
     );
 
+    BacklogService.removeTask.subscribe(
+      taskCreated => this.backlogService.moveTask(taskCreated)
+    );   
+
+   // DevelopmentService.moveTask.subscribe(
+   //   taskCreated => this.tasks.push(taskCreated)
+   // );    
     // this.logService.consoleLog(`Backlog Event onInit - [value: ${this.task}]`);
   }
 
@@ -46,13 +57,13 @@ export class BacklogTasksComponent implements OnInit {
   onClickAdd(task: string) {
    // this.taskService.removeTask(task);
 
-     this.taskService.moveTask(task, 'Dev');
+     this.backlogService.moveTask(task);
     //  this.taskService.addTask(task);
    //   this.tasks.push(task);
 
   }
 
   onClickDelete(i: number, task: string) {
-    this.taskService.removeTask(task);
+    this.backlogService.removeTask(task);
   }
 }

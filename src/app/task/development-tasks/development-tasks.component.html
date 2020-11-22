@@ -6,10 +6,10 @@
   <li [ngClass]="status?'remove-item': ''" >
     <a>{{item}}</a>
    <span>
-     <button type="button" (click)="onClickDelete(i,item)"><i class="fa fa-backward"></i></button>
+     <button type="button" (click)="onClickMoveBack(item);onClickDelete(i,item)"><i class="fa fa-backward"></i></button>
    </span> 
    <span>
-    <button type="button" (click)="onClickAdd(item)"><i class="fa fa-forward"></i></button>
+    <button type="button" (click)="onClickAdd(item); onClickDelete(i,item)"><i class="fa fa-forward"></i></button>
   </span> 
   </li>
 </ul>

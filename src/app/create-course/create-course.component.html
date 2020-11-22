@@ -1,0 +1,10 @@
+<h5>Sharing services between components</h5>
+
+<input type="text" #courseInput> <button (click)="onAddCourse(courseInput.value)">Add</button>
+
+<ul *ngFor="let item of courses">
+    <li (click)=selectedCourse(item) >{{ item}}</li>
+</ul>
+
+
+<app-get-created-course></app-get-created-course>

@@ -9,17 +9,20 @@ export class TasksData implements InMemoryDbService {
       {
         id: 1,
         title: 'TASK 1',
+        status: 'Backlog',
        // isDone: false,
        // isPrivate: true,
       },
       {
         id: 2,
         title: 'TASK 2',
+        status: 'Dev',
        // isDone: false,
       },
       {
         id: 3,
         title: 'TASK 3',
+        status: 'Done',
       //  isDone: true,
       //  isBusiness: true,
       },

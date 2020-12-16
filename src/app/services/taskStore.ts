@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
+import { map, shareReplay } from "rxjs/operators";
 import { Task } from '../models/task';
 import { Filter } from '../models/filter';
 import { Store } from '../shared/store';
@@ -25,12 +25,14 @@ const initialState: TaskState = {
     providedIn: 'root',
 })
 export class TaskStore extends Store<TaskState> {
+ /*   
     private tasksFiltered$: Observable<Task[]> = this.select((state) => {
         return getTasksFiltered(state.tasks, state.filter);
       });   
     
     constructor(private apiService: TasksApiService) {
         super(initialState);
+
         this.load();
     }
 
@@ -60,7 +62,7 @@ export class TaskStore extends Store<TaskState> {
   load() {
     this.apiService.getTasks().subscribe((tasks) => this.setState({ tasks }));
   }
-  /*
+  / *
   create(task: Task) {
       this.apiService.createTask(task).subscribe((newTask) => {
           this.setState({
@@ -69,16 +71,16 @@ export class TaskStore extends Store<TaskState> {
           });
       });
   }
-  */
+  * /
 
   update(task: Task) {
     this.apiService.updateTask(task).subscribe((updatedTask) => {
       this.setState({
-        tasks: this.state.tasks.map((item) => (item.id === task.id ? updatedTask : item)),
+        tasks: this.state.tasks.map((item) => (item.id === task.id ? updatedTask : item))
       });
     });
   }  
-
+*/
 }
 
 function getTasksFiltered(tasks, filter): Task[] {

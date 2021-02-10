@@ -28,7 +28,7 @@ export class TestFormComponent implements OnInit {
 
   initiateForm() {
     this.formTest = this.formBuilder.group({
-      userName: [null],
+      userName: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
       editorContent: [null],
       ShouldReceiveEmailBroadcast: [null],
       lastUpdateEndDate: [null]
@@ -44,23 +44,35 @@ export class TestFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.formTest.value);
+    console.log(this.formTest);
 
-    console.log(this.formTest.get('editorContent').value);
+   // console.log(this.formTest.get('editorContent').value);
 
   
-    this.http.post('https1://httpbin.org/post', JSON.stringify(this.formTest.value))
+    this.http.post('https://httpbin.org/post', JSON.stringify(this.formTest.value))
     .subscribe(
       res => {
         alert('Success');
         console.log(res);
-        this.formTest.reset();
+       // this.formTest.reset();
       }, 
       error => {
         console.log(error);
         alert(error.message);
       });
       
+  }
+
+  isValidField(field) {
+   // return !field.valid && field.touched;
+    return !this.formTest.get(field).valid && this.formTest.get(field).touched;
+  }
+
+  applyCssError(field) {
+    return {
+      'has-error': this.isValidField(field),
+      'has-feedback': this.isValidField(field)
+    }
   }
 
 }

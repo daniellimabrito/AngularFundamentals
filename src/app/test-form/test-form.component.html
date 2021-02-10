@@ -1,19 +1,23 @@
 <div class="container">
     <div class="row">
         <form class="form-horizontal" [formGroup]="formTest" (ngSubmit)="onSubmit()" >
-            <div class="form-group">
+            <div class="form-group" [ngClass]="applyCssError('userName')">
                 <div class="col-12">
                     <label for="userName" class="control-label">UserName</label>             
                 </div>
                 <div class="col-12">
                     <input type="text" class="form-control" formControlName="userName" [(ngModel)]="example.userName" >
                 </div>
+            </div>
+            <div class="form-group" [ngClass]="applyCssError('editorContent')">
                 <div class="col-12">
                     <label for="editorContent" class="control-label">Editor</label>             
                 </div>
                 <div class="col-12">
                     <quill-editor [styles]="editorStyle" formControlName="editorContent" [(ngModel)]="example.editorContent"></quill-editor>
                 </div>
+            </div>
+            <div class="form-group" [ngClass]="applyCssError('ShouldReceiveEmailBroadcast')">
                 <div class="col-12">
                     <div class="checkbox">
                         <input name="remember" id="remember" type="checkbox" formControlName="ShouldReceiveEmailBroadcast" [(ngModel)]="example.ShouldReceiveEmailBroadcast">
@@ -22,7 +26,8 @@
                         </label>
                     </div>
                 </div>     
-                 
+            </div>
+            <div class="form-group" [ngClass]="applyCssError('lastUpdateEndDate')">  
                 <div class="col-4">
                         <label>Last Update End Date:</label>
                         <br />

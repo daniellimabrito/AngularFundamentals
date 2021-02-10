@@ -21,7 +21,7 @@ import { CommonModule } from '@angular/common';
 import { TestFormComponent } from './test-form/test-form.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-//import { MatMomentDateModule } from "@angular/material-moment-adapter";
+import { MatMomentDateModule } from "@angular/material-moment-adapter";
 
 
 
@@ -49,7 +49,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     QuillModule.forRoot(),
     MatDatepickerModule,
     MatNativeDateModule, 
-   // MatMomentDateModule,
+    MatMomentDateModule,
   ],
 //  providers: [CoursesServices],
   providers: [LogService],

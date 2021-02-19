@@ -43,6 +43,10 @@ export class BacklogTasksComponent implements OnInit {
     // this.logService.consoleLog(`Backlog Event onInit - [value: ${this.task}]`);
   }
 
+  trackByFn(index: number, item: any): number {
+    return item.id;
+  }
+
   select(item) {
     this.selected = item; 
   };

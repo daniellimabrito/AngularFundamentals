@@ -2,7 +2,7 @@
   {{title}}
 </p>
 
-<ul *ngFor="let item of tasks; let i = index">
+<ul *ngFor="let item of tasks; trackBy: trackByFn; let i = index">
   <li [ngClass]="status?'remove-item': ''" >
     <a>{{item}}</a>
    <span>

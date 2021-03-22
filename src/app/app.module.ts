@@ -22,6 +22,8 @@ import { TestFormComponent } from './test-form/test-form.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
+import { HostbidingComponent } from './hostbiding/hostbiding.component';
+import { HostbindingComponent } from './hostbinding.component';
 
 
 
@@ -29,7 +31,9 @@ import { MatMomentDateModule } from "@angular/material-moment-adapter";
   declarations: [		
     AppComponent,
       QuillEditorComponent,
-      TestFormComponent
+      TestFormComponent,
+      HostbidingComponent,
+      HostbindingComponent
    ],
   imports: [
     BrowserModule,

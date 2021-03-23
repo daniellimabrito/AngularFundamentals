@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, HostListener, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'app-hostbinding',
@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hostbinding.component.css']
 })
 export class HostbindingComponent implements OnInit {
+  ngOnInit(): void {
+    throw new Error("Method not implemented.");
+  }
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
+    
   }
 
 }

@@ -22,8 +22,8 @@ import { TestFormComponent } from './test-form/test-form.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
-import { HostbidingComponent } from './hostbiding/hostbiding.component';
-import { HostbindingComponent } from './hostbinding.component';
+import { HostbindingComponent } from './hostbinding/hostbinding.component';
+import { BetterHighlight2Directive } from './shared/better-highlight2.directive';
 
 
 
@@ -32,8 +32,8 @@ import { HostbindingComponent } from './hostbinding.component';
     AppComponent,
       QuillEditorComponent,
       TestFormComponent,
-      HostbidingComponent,
-      HostbindingComponent
+      HostbindingComponent,
+      BetterHighlight2Directive
    ],
   imports: [
     BrowserModule,
